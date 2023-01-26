@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.upload-form {
+    /* Add some basic styling */
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    /* Add some padding */
+    padding: 50px;
+}
+
+.file-input {
+    /* Add some basic styling */
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    /* Add some border */
+    border: none;
+    /* Add some font styles */
+    font-size: 16px;
+}
+
+.submit-button {
+    /* Add a background color */
+    background-color: transparent;
+    /* Add some border */
+    border: 2px solid #ff0000; /* YouTube's red color */
+    /* Add some padding */
+    padding: 12px 24px;
+    /* Add some border */
+    border-radius: 4px;
+    /* Add font styles */
+    font-size: 14px;
+    font-weight: bold;
+    /* Add text color */
+    color: #ff0000; /* red */
+    /* Add hover effects */
+    transition: all 0.2s ease-in-out;
+    /* Remove box-shadow */
+    box-shadow: none;
+    /* Remove text-shadow */
+    text-shadow: none;
+}
+.submit-button:hover {
+    /* Add hover background color */
+    background-color: #ff0000; /* red */
+    /* Add hover text color */
+    color: #fff; /* white */
+}
+.submit-button:active {
+    /* Add active state styles */
+    transform: scale(0.95);
+    /* Add active state border /
+    border: 2px solid #000; / black */
+    }
+        
+
+/* 
+    Styles for success.ejs
+*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(143, 231, 253, 0.925), rgb(174, 255, 180));
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.container img {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+    border: black 4px solid;
+    border-radius: 14px;
+}
+
+.container a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: 2px solid #000;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.container a:hover {
+    background-color: #000;
+    color: #fff;
+}

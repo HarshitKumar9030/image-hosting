@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        <div class="form-container">
-            <form action="/upload" method="post" enctype="multipart/form-data">
-              <input type="file" name="image" accept="image/*">
-              <input type="submit" value="Upload">
-            </form>
-          </div>                 
+      <div class="upload-form">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="image" required>
+            <br>
+            <button class="submit-button" type="submit">Upload</button>
+        </form>
+    </div>
+                   
     </body> 
 </html>

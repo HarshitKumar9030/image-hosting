@@ -1,7 +1,11 @@
 import express, { Request, Response } from 'express';
-const port = 3000;
 import ejs from 'ejs';
 import multer from 'multer';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const host = process.env.HOST || 'http://localhost:3000';
+const port = process.env.PORT || 3000;
 
 declare module 'multer' {
     interface File {
@@ -11,6 +15,7 @@ declare module 'multer' {
 
 const app = express();
 app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -28,12 +33,12 @@ app.get('/upload', (req: Request, res: Response) => {
 app.post('/upload',upload.single('image'), (req: Request, res: Response) => {
     if(req.file) {
         const imageUrl = `/uploads/${req.file.originalname}`;
-        res.send(imageUrl);
+        res.render('success', { imageUrl: imageUrl, host: host })
     } else {
         res.send("file not uploaded");
     }
 });
 
 app.listen(port, () => {
-    console.log('Server started on port 3000');
+    console.log(`Server is running on ${host}`);
 });

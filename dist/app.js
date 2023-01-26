@@ -4,10 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const port = 3000;
 const multer_1 = __importDefault(require("multer"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+const host = process.env.HOST || 'http://localhost:3000';
+const port = process.env.PORT || 3000;
 const app = (0, express_1.default)();
 app.set('view engine', 'ejs');
+app.use(express_1.default.static('public'));
 const storage = multer_1.default.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/uploads/');
@@ -23,12 +27,12 @@ app.get('/upload', (req, res) => {
 app.post('/upload', upload.single('image'), (req, res) => {
     if (req.file) {
         const imageUrl = `/uploads/${req.file.originalname}`;
-        res.send(imageUrl);
+        res.render('success', { imageUrl: imageUrl, host: host });
     }
     else {
         res.send("file not uploaded");
     }
 });
 app.listen(port, () => {
-    console.log('Server started on port 3000');
+    console.log(`Server is running on ${host}`);
 });
